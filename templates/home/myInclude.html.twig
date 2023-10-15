@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %} 
+
+{% block title %}
+
+ Hello HomeController ! 
+ 
+ {% endblock %}
+
+ {% block body %}
+
+<p class="text-center fs-2 link-warning">
+    {{"now" | date('d.m.Y H:i:s')}}
+</p>
+
+{% endblock %}

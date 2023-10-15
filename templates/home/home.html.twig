@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %} 
+
+{% block title %}
+Hello HomeController!
+{% endblock %} 
+
+{% block body %}
+
+{# {% set fruits = ["banane", "cerise", "fraise"]%}
+
+    {% for fruit in fruits %}
+
+        {{ fruit | upper}}
+
+    {% endfor %}<br> #}
+
+
+<div class="example-wrapper">
+
+  <div class="row row-cols-1 row-cols-md-2 g-4 row-cols-lg-3 mt-1">
+    
+    {% for article in articles %}
+    
+      <div class="col">
+        <div class="card">
+            <img src="{{ article.image }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title link-primary">{{ article.title | upper }}</h5>
+
+              <a href="{{path('show',{'id': article.id})}}" class="btn btn-primary my-2 my-sm-0 link-success mt-2">En Savoir plus</a>
+
+              <p class="card-text link-warning h6 mt-2">{{ article.createdAt|date('d.m.Y H:i:s')}}</p>
+
+            </div>
+          </div>
+        </div>
+    {% endfor %}
+  </div>
+
+</div>
+{% endblock %}
+
+
+{# code formateur
+<div class="row">
+  {% for article in articles %}
+  <div class="card col-md-4" style="width: 18rem;">
+      <p class="date">{{ article.createdAt | date("d/m/y")}}</p>
+      <img src="{{article.image}}" class="card-img-top" alt="{{ article.title }}">
+      <div class="card-body">
+        <h5 class="card-title"> {{article.title }}</h5>
+        <a href="#" class="btn btn-primary">En Savoir plus</a>
+      </div>
+    </div>
+  {% endfor %}
+</div> #}
