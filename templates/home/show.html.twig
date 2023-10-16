@@ -4,11 +4,13 @@
 
 {% block body %}
 <div class="example-wrapper">
+    {# {% if article is not null %} #}
+
     <h1> Détails Article </h1>
 </div>
 <div class="container">
     <div class="img-fluid">
-        <img src="{{article.image}}" alt="{{ article.title }}">
+        <img src="{{ asset('images/articles/' ~ article.image)}}" alt="{{ article.title }}">
     </div>
     <div class="content">
         <p class="date">Ecrit le {{ article.createdAt | date("d.m.y")  }} à {{ article.createdAt | date("H:m") }}</p>

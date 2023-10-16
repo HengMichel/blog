@@ -2,11 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\CategoryRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Entity\Article;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\CategoryRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
 class Category
@@ -74,6 +75,13 @@ class Category
         return $this;
     }
 
+
+    // public function getImageUrl(): ?string
+    // {
+    //     return $this->image ? '/images/category/' . $this->image : null;
+    // }
+
+
     /**
      * @return Collection<int, Article>
      */
@@ -99,5 +107,10 @@ class Category
         }
 
         return $this;
+    }
+
+    public function __toString(){
+
+        return $this->title;
     }
 }

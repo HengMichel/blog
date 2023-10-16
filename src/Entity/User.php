@@ -33,6 +33,16 @@ class User
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $createdAt = null;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Article::class)]
+    private Collection $article;
+
+    public function __construct()
+    {
+        $this->article = new ArrayCollection();
+        $this->createdAt = new \DateTime();
+
+    }
    
    
 
@@ -113,7 +123,40 @@ class User
         return $this;
     }
 
-    
+    /**
+     * @return Collection<int, article>
+     */
+    public function getArticle(): Collection
+    {
+        return $this->article;
+    }
+
+    public function addArticle(Article $article): static
+    {
+        if (!$this->article->contains($article)) {
+            $this->article->add($article);
+            $article->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArticle(Article $article): static
+    {
+        if ($this->article->removeElement($article)) {
+            // set the owning side to null (unless already changed)
+            if ($article->getUser() === $this) {
+                $article->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString(){
+
+        return $this->firstname.''.$this->lastname;
+    }
 
    
 }
