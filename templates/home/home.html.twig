@@ -1,58 +1,76 @@
-{% extends 'base.html.twig' %} 
+{% extends 'base.html.twig' %} {% block title %} {% endblock %} {% block body %}
+<h1 class="h1 text-xxl-center mt-3">Mon Blog à moi !</h1>
 
-{% block title %}
-Hello HomeController!
-{% endblock %} 
+{# {% set fruits = ["banane", "cerise", "fraise"]%} {% for fruit in fruits %}
 
-{% block body %}
+{{ fruit | upper }}
 
-{# {% set fruits = ["banane", "cerise", "fraise"]%}
+{% endfor %}<br />
+#}
 
-    {% for fruit in fruits %}
-
-        {{ fruit | upper}}
-
-    {% endfor %}<br> #}
-
-
-<div class="example-wrapper text-xxl-center mt-3">
-  <h1>The Blog</h1>
-
+<div class="example-wrapper text-xxl-center mt-3 d-flex m-5">
   <div class="row row-cols-1 row-cols-md-2 g-4 row-cols-lg-3 mt-1">
-    
     {% for article in articles %}
-    
-      <div class="col">
-        <div class="card">
-            <img src="{{ asset('images/articles/' ~ article.image)}}" class="card-img-top" alt="{{article.title}}">
-            <div class="card-body">
-              <h5 class="card-title link-primary">{{ article.title | upper }}</h5>
 
-              <a href="{{path('show',{'id': article.id})}}" class="btn btn-primary my-2 my-sm-0 link-success mt-2">En Savoir plus</a>
+    <div class="col">
+      <div class="card">
+        <img
+          src="{{ asset('images/articles/' ~ article.image)}}"
+          class="card-img-top"
+          alt="{{ article.title }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title link-primary">{{ article.title | upper }}</h5>
 
-              <p class="card-text link-warning h6 mt-2">{{ article.createdAt|date('d.m.Y H:i:s')}} </p>
-              <p class="card-text link-warning h6 mt-2">par {{article.auteur}} </p>
-
-            </div>
-          </div>
+          <a
+            href="{{ path('show', { id: article.id }) }}"
+            class="btn btn-primary my-2 my-sm-0 link-success mt-2"
+            >En Savoir plus</a
+          >
+          <p class="card-text link-warning h6 mt-2">
+            {{ article.createdAt|date('d.m.Y H:i:s')}}
+          </p>
+          <p class="card-text link-warning h6 mt-2">par {{ article.auteur }}</p>
         </div>
+      </div>
+    </div>
     {% endfor %}
   </div>
 
+  <div class="filtre m-md-4">
+    <h1>Catégories</h1>
+    <ul class="list-group">
+      <li
+      class="list-group-item justify-content-between align-items-center d-block"
+      >
+      {% for category in categories %}
+      <a class="btn btn-warning my-2 my-sm-0 link-success mt-2"
+        {# href="{{ path('app_home', { id: category.id }) }}" #}
+        href="{{ path('show_filter', { 'id': category.id }) }}"
+        >{{category.title}}</a
+        >
+        <span class="bg-primary rounded-pill btn bi">{{ category.articles | length }}article(s)</span>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
 </div>
-{% endblock %}
 
-
-{# code formateur
+{% endblock %} {# code formateur
 <div class="row">
   {% for article in articles %}
-  <div class="card col-md-4" style="width: 18rem;">
-      <p class="date">{{ article.createdAt | date("d/m/y")}}</p>
-      <img src="{{article.image}}" class="card-img-top" alt="{{ article.title }}">
-      <div class="card-body">
-        <h5 class="card-title"> {{article.title }}</h5>
-        <a href="#" class="btn btn-primary">En Savoir plus</a>
-      </div>
+  <div class="card col-md-4" style="width: 18rem">
+    <p class="date">{{ article.createdAt | date("d/m/y")}}</p>
+    <img
+      src="{{ article.image }}"
+      class="card-img-top"
+      alt="{{ article.title }}"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ article.title }}</h5>
+      <a href="#" class="btn btn-primary">En Savoir plus</a>
     </div>
+  </div>
   {% endfor %}
-</div> #}
+</div>
+#}

@@ -53,7 +53,6 @@ class AppFixtures extends Fixture
             $article->setAuteur($users[$faker->numberBetween(0,49)]);
             $manager->persist($article); 
         }
-
         $manager->flush();
     }
 }
