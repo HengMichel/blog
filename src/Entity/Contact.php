@@ -44,7 +44,7 @@ class Contact
     }
 
     public function getEmail(): ?string
-    {
+    { 
         return $this->email;
     }
 

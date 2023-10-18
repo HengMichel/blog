@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %} {% block title %} {% endblock %} {% block body %}
-<h1 class="h1 text-xxl-center mt-3">Mon Blog à moi !</h1>
+<h1 class="h1 text-xxl-center mt-3 fst-italic"><span class="mon link-info">Mon</span> <span class="blog link-primary">Blog</span> à <span class="moi link-warning">moi !</span></h1>
 
 {# {% set fruits = ["banane", "cerise", "fraise"]%} {% for fruit in fruits %}
 
@@ -13,7 +13,7 @@
     {% for article in articles %}
 
     <div class="col">
-      <div class="card">
+      <div class="card border border-1 border-warning">
         <img
           src="{{ asset('images/articles/' ~ article.image)}}"
           class="card-img-top"
@@ -37,19 +37,19 @@
     {% endfor %}
   </div>
 
-  <div class="filtre m-md-4">
-    <h1>Catégories</h1>
-    <ul class="list-group">
+  <div class="filtre m-md-4  text-xxl-end ">
+    <h1 class="catego link-warning fst-italic">Catégories</h1>
+    <ul class="list-group p-1 border border-1 border-success">
       <li
-      class="list-group-item justify-content-between align-items-center d-block"
+      class="list-group-item align-items-center"
       >
       {% for category in categories %}
-      <a class="btn btn-warning my-2 my-sm-0 link-success mt-2"
-        {# href="{{ path('app_home', { id: category.id }) }}" #}
+      <a class="btn btn-outline-warning mt-2 border-primary border-3 list-group-item fw-bold"
+       
         href="{{ path('show_filter', { 'id': category.id }) }}"
         >{{category.title}}</a
         >
-        <span class="bg-primary rounded-pill btn bi">{{ category.articles | length }}article(s)</span>
+        <span class="bg-primary btn bi mt-2 ">{{ category.articles | length }}article(s)</span>
       </li>
       {% endfor %}
     </ul>

@@ -7,18 +7,18 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link active link-primary" href="/home">Home
+          <a class="nav-link active link-primary" href="{{path('app_home')}}">Home
             <span class="visually-hidden">(current)</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link link-info" href="/admin">Admin</a>
+          <a class="nav-link link-info" href="{{path('admin')}}">Admin</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link link-primary" href="#">Pricing</a>
+          <a class="nav-link link-primary" href="{{path('app_contact')}}">Contact</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link link-info" href="#">About</a>
+          <a class="nav-link link-info" href="{{path('app_user')}}">User</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle link-primary" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
@@ -32,8 +32,8 @@
         </li>
       </ul>
       <form class="d-flex">
-        <input class="form-control me-sm-2 fw-medium link-info" type="search" placeholder="Search">
-        <button class="btn btn-outline-primary my-2 my-sm-0 fw-medium" type="submit">Search</button>
+        <input class="form-control me-sm-2 fw-medium link-info ms-3 border border-warning" type="search" placeholder="Search">
+        <button class="btn btn-outline-primary my-2 my-sm-0 fw-medium border border-1 border-light ms-2" type="submit">Search</button>
       </form>
     </div>
   </div>
