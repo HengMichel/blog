@@ -8,7 +8,7 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper  link-info shadow-lg badge list-group-item">
+<div class="example-wrapper link-info shadow-lg badge list-group-item mt-3 p-3">
     <h1 class="user mt-3 link-success"> 
         {{ controller_name }} 
         {# ✅ #}
@@ -17,40 +17,40 @@
 
     {{ form_start(user) }}
     <div class="row">
-        <div class="col-md-4 link-danger">
+        <div class="col-md-4 link-danger fw-semibold mt-3">
             {{ form_row(user.username, {'label': "Nom d'utilisateur : ", 'attr': {
                 'placeholder' : "Votre nom d'utilisateur ..."
             }}) }}
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 fw-semibold mt-3">
             {{ form_row(user.firstname, {'label': "Votre Prénom : ", 'attr': {
                 'placeholder' : "Votre Prénom ..."
             }}) }}
         </div>
-        <div class="col-md-4 link-primary">
+        <div class="col-md-4 link-primary fw-semibold mt-3">
             {{ form_row(user.lastname, {'label': "Votre Nom : ", 'attr': {
                 'placeholder' : "Nom..."
             }}) }}
         </div>
     </div>
     <div class="row">
-        <div class="col-12 link-success">
+        <div class="col-12 link-success fw-semibold mt-3">
             {{ form_row(user.email, {'label': "Votre Mail : ", 'attr': {
                 'placeholder' : "Votre Mail ..."
             }}) }}
         </div>
-        <div class="col-12 link-danger">
+        <div class="col-12 link-light fw-semibold mt-3">
             {{ form_row(user.password, {'label': "Votre Password : ", 'attr': {
                 'placeholder' : "Votre Password ..."
             }}) }}
         </div>
-        <div class="col-12 link-primary">
+        <div class="col-12 link-primary fw-semibold mt-3">
             {{ form_row(user.passwordConfirm, {'label': "Confirmez votre Password : ", 'attr': {
                 'placeholder' : "Confirmez votre Password ..."
             }}) }}
         </div>
     </div>
-        <button type="submit" class="btn btn-outline-warning fw-bolder">S'inscrire</button>
+        <button type="submit" class="btn btn-outline-warning fw-bolder fw-semibold mt-3">S'inscrire</button>
     {{ form_end(user) }}
 
     {# {{form(user)}} #}

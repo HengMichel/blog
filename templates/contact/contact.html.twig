@@ -8,7 +8,7 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper link-info shadow-lg badge list-group-item">
+<div class="example-wrapper link-info shadow-lg badge list-group-item mt-3 p-3">
     <h1 class="contact mt-3">Contactez-nous!
          {# ✅ #}
         </h1>
@@ -17,12 +17,12 @@
 
     {{ form_start(contact) }}
     <div class="row">
-        <div class="col-md-6 link-success fw-semibold">
+        <div class="col-md-6 link-success fw-semibold mt-3">
             {{ form_row(contact.firstname_lastname, {'label': "Nom d'utilisateur : ", 'attr': {
                 'placeholder' : "Votre nom d'utilisateur ..."
             }}) }}
         </div>
-        <div class="col-md-6 link-warning fw-semibold">
+        <div class="col-md-6 link-warning fw-semibold mt-3">
             {{ form_row(contact.email, {'label': "Votre Mail : ", 'attr': {
                 'placeholder' : "Votre Mail ..."
             }}) }}
@@ -39,18 +39,19 @@
                 'placeholder' : "Votre Mail ..."
             }}) }}
         </div> #}
-        <div class="col-12 link-secondary fw-semibold">
+        <div class="col-12 link-secondary fw-semibold mt-3">
             {{ form_row(contact.subject, {'label': "Le sujet est requis. ", 'attr': {
                 'placeholder' : "Le sujet ne peut pas dépasser 255 caractères."
             }}) }}
         </div> 
-        <div class="col-12 link-primary fw-semibold">
+        <div class="col-12 link-primary fw-semibold mt-3">
             {{ form_row(contact.description, {'label': "La description est requise.", 'attr': {
                 'placeholder' : "La description doit comporter au moins 10 caractères."
             }}) }}
         </div>
     </div>
-        <button type="submit" class="btn btn-outline-warning fw-bolder fw-semibold">S'inscrire</button>
+        <button type="submit" class="btn btn-outline-warning fw-bolder fw-semibold
+        mb-3 mt-3">S'inscrire</button>
     {{ form_end(contact) }}
 </div>
 {% endblock %}
