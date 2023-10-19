@@ -9,7 +9,7 @@
 </style>
 
 <div class="example-wrapper  link-info shadow-lg badge list-group-item">
-    <h1 class="user mt-3"> 
+    <h1 class="user mt-3 link-success"> 
         {{ controller_name }} 
         {# ✅ #}
     </h1>
@@ -17,7 +17,7 @@
 
     {{ form_start(user) }}
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 link-danger">
             {{ form_row(user.username, {'label': "Nom d'utilisateur : ", 'attr': {
                 'placeholder' : "Votre nom d'utilisateur ..."
             }}) }}
@@ -27,24 +27,24 @@
                 'placeholder' : "Votre Prénom ..."
             }}) }}
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 link-primary">
             {{ form_row(user.lastname, {'label': "Votre Nom : ", 'attr': {
                 'placeholder' : "Nom..."
             }}) }}
         </div>
     </div>
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 link-success">
             {{ form_row(user.email, {'label': "Votre Mail : ", 'attr': {
                 'placeholder' : "Votre Mail ..."
             }}) }}
         </div>
-        <div class="col-12">
+        <div class="col-12 link-danger">
             {{ form_row(user.password, {'label': "Votre Password : ", 'attr': {
                 'placeholder' : "Votre Password ..."
             }}) }}
         </div>
-        <div class="col-12">
+        <div class="col-12 link-primary">
             {{ form_row(user.passwordConfirm, {'label': "Confirmez votre Password : ", 'attr': {
                 'placeholder' : "Confirmez votre Password ..."
             }}) }}

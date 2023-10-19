@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %} {% block title %} {% endblock %} {% block body %}
-<h1 class="h1 text-xxl-center mt-3 fst-italic"><span class="mon link-info">Mon</span> <span class="blog link-primary">Blog</span> à <span class="moi link-warning">moi !</span></h1>
+<h1 class="h1 text-xl-center mt-3 fst-italic"><span class="mon link-info">Mon</span> <span class="blog link-primary">Blog</span> à <span class="moi link-warning">moi !</span></h1>
 
 {# {% set fruits = ["banane", "cerise", "fraise"]%} {% for fruit in fruits %}
 
@@ -8,11 +8,12 @@
 {% endfor %}<br />
 #}
 
-<div class="example-wrapper text-xxl-center mt-3 d-flex m-5">
+<div class="example-wrapper text-xl-center mt-3 d-flex">
+
   <div class="row row-cols-1 row-cols-md-2 g-4 row-cols-lg-3 mt-1">
     {% for article in articles %}
 
-    <div class="col">
+    <div class="col m-md-4">
       <div class="card border border-1 border-warning">
         <img
           src="{{ asset('images/articles/' ~ article.image)}}"
@@ -20,7 +21,7 @@
           alt="{{ article.title }}"
         />
         <div class="card-body">
-          <h5 class="card-title link-primary">{{ article.title | upper }}</h5>
+          <h5 class="card-title link-success">{{ article.title | upper }}</h5>
 
           <a
             href="{{ path('show', { id: article.id }) }}"

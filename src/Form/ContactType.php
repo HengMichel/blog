@@ -34,25 +34,25 @@ class ContactType extends AbstractType
             ])
             ->add('subject', null, [
                 'constraints' => [
-                    new Assert\NotBlank(['message' => 'Le sujet est requis.']),
+                    // new Assert\NotBlank(['message' => 'Le sujet est requis.']),
                     new Assert\Length([
                         'max' => 255,
-                        'maxMessage' => 'Le sujet ne peut pas dépasser {{ limit }} caractères.',
+                        // 'maxMessage' => 'Le sujet ne peut pas dépasser {{ limit }} caractères.',
                     ]),
                 ],
             ])
             ->add('description', null, [
                 'constraints' => [
-                    new Assert\NotBlank(['message' => 'La description est requise.']),
+                    // new Assert\NotBlank(['message' => 'La description est requise.']),
                     new Assert\Length([
                         'min' => 10,
                         'max' => 1000,
-                        'minMessage' => 'La description doit comporter au moins {{ limit }} caractères.',
-                        'maxMessage' => 'La description ne peut pas dépasser {{ limit }} caractères.',
+                        // 'minMessage' => 'La description doit comporter au moins {{ limit }} caractères.',
+                        // 'maxMessage' => 'La description ne peut pas dépasser {{ limit }} caractères.',
                     ]),
                 ],
             ])
-            ->add('send', SubmitType::class)
+            // ->add('send', SubmitType::class)
         ;
     }
 

@@ -13,6 +13,44 @@
          {# ✅ #}
         </h1>
 
-    {{form(contact)}}
+    {# {{form(contact)}} #}
+
+    {{ form_start(contact) }}
+    <div class="row">
+        <div class="col-md-6 link-success fw-semibold">
+            {{ form_row(contact.firstname_lastname, {'label': "Nom d'utilisateur : ", 'attr': {
+                'placeholder' : "Votre nom d'utilisateur ..."
+            }}) }}
+        </div>
+        <div class="col-md-6 link-warning fw-semibold">
+            {{ form_row(contact.email, {'label': "Votre Mail : ", 'attr': {
+                'placeholder' : "Votre Mail ..."
+            }}) }}
+        </div>
+        {# <div class="col-md-4 link-primary">
+             {{ form_row(contact.subject, {'label': "Le sujet est requis. ", 'attr': {
+                'placeholder' : "Le sujet ne peut pas dépasser 255 caractères."
+            }}) }}
+        </div> #}
+    </div>
+     <div class="row">
+        {# <div class="col-12 link-success">
+            {{ form_row(contact.email, {'label': "Votre Mail : ", 'attr': {
+                'placeholder' : "Votre Mail ..."
+            }}) }}
+        </div> #}
+        <div class="col-12 link-secondary fw-semibold">
+            {{ form_row(contact.subject, {'label': "Le sujet est requis. ", 'attr': {
+                'placeholder' : "Le sujet ne peut pas dépasser 255 caractères."
+            }}) }}
+        </div> 
+        <div class="col-12 link-primary fw-semibold">
+            {{ form_row(contact.description, {'label': "La description est requise.", 'attr': {
+                'placeholder' : "La description doit comporter au moins 10 caractères."
+            }}) }}
+        </div>
+    </div>
+        <button type="submit" class="btn btn-outline-warning fw-bolder fw-semibold">S'inscrire</button>
+    {{ form_end(contact) }}
 </div>
 {% endblock %}
