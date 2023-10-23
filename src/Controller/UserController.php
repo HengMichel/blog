@@ -37,6 +37,7 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $plaintextPassword = $user->getPassword();
             $hashedPassword = $passwordHasher->hashPassword(
                 $user,
@@ -47,7 +48,10 @@ class UserController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_home');
+            // $this->addFlash('success', 'Inscription réussie ! Vous pouvez maintenant vous connecter.');
+            
+
+            return $this->redirectToRoute('app_login');
             // return new RedirectResponse($this->generateUrl('app_home'));
         
         }

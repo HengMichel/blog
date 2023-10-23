@@ -6,7 +6,7 @@
     </button> #}
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav me-auto">
-        <li class="nav-item">
+        {# <li class="nav-item">
           <a class="nav-link active link-primary ms-2 fw-bolder" href="{{path('app_home')}}">Home
             <span class="visually-hidden">(current)</span>
           </a>
@@ -19,10 +19,32 @@
         </li>
         <li class="nav-item">
           <a class="nav-link link-info ms-2 fw-bolder" href="{{path('app_user')}}">User</a>
-        </li>
-        <li class="nav-item">
+        </li> #}
+        {# <li class="nav-item">
           <a class="nav-link link-warning ms-2 fw-bolder" href="{{path('app_login')}}" >Login</a>
+        </li> #}
+
+        <li class="nav-item">
+          {# <a class="nav-link link-warning ms-2 fw-bolder" href="{{path('app_login')}}" >Login</a> #}
+          {# Si l'utilisateur est connecté #}
+          {% if app.user %}
+          <button class="btn btn-outline-primary my-2 my-sm-0 fw-medium border border-1 border-info ms-2 sf-ajax-request-url" ><a href="{{ path('app_logout') }}" class="nav-link ">Se déconnecter</a></button>
+          
+          {% else %}
+          <button class="btn btn-outline-primary my-2 my-sm-0 fw-medium border border-1 border-primary ms-2 sf-ajax-request-url" >          <a href="{{ path('app_login') }}" class="nav-link link-success">Se connecter</a>
+          </button>
+          <button class="btn btn-outline-primary my-2 my-sm-0 fw-medium border border-1 border-warning ms-2 sf-ajax-request-url" ><a href="{{ path('app_user') }}" class="nav-link link-info">Inscription</a></button>
+          
+          {% endif %}
         </li>
+
+        {# {% if success_message is not empty %}
+        <div class="alert alert-success">
+            {{ success_message }}
+        </div>
+        {% endif %} #}
+
+        
       </ul>
       <form class="d-flex">
         <input class="form-control me-sm-2 fw-medium link-info ms-3 border border-success" type="search" placeholder="Search">

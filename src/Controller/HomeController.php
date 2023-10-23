@@ -16,6 +16,7 @@ class HomeController extends AbstractController
         $articles = $articleRepository->findAll();
         $categories = $categoryRepository->findAll();
 
+        
         // dd($articles);
         return $this->render('home/home.html.twig', [
             'controller_name' => 'Bienvenue sur mon site !',

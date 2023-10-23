@@ -23,11 +23,19 @@
         <div class="card-body">
           <h5 class="card-title link-success">{{ article.title | upper }}</h5>
 
-          <a
-            href="{{ path('show', { id: article.id }) }}"
-            class="btn btn-primary my-2 my-sm-0 link-success mt-2"
-            >En Savoir plus</a
-          >
+
+          {% if app.user %}
+          <button class="btn btn-primary my-2 my-sm-0 link-success mt-2" ><a href="{{ path('show', { id: article.id }) }}"  class="btn btn-primary my-2 my-sm-0 link-success mt-2"
+            >En Savoir plus</a>
+          
+          {% else %}
+          {# bouton non visible #}
+          <button class="btn btn-outline-primary my-2 my-sm-0 fw-medium border border-1 border-primary ms-2 sf-ajax-request-url" ><a href="{{ path('app_login') }}" class="nav-link link-success">Se connecter</a>
+          </button>
+         
+          {% endif %}
+          
+
           <p class="card-text link-warning h6 mt-2">
             {{ article.createdAt|date('d.m.Y H:i:s')}}
           </p>
@@ -56,6 +64,14 @@
     </ul>
   </div>
 </div>
+
+
+{# {% if app.session.flashBag.has('success') %}
+    <div class="alert alert-success">
+        {{ app.session.flashBag.get('success').0 }}
+    </div>
+{% endif %} #}
+
 
 {% endblock %} {# code formateur
 <div class="row">

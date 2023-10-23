@@ -54,7 +54,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->article = new ArrayCollection();
         $this->createdAt = new \DateTime();
 
-
     }
    
     public function getId(): ?int
@@ -181,8 +180,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
 
-
-        /**
+    /**
      * A visual identifier that represents this user.
      *
      * @see UserInterface
@@ -191,7 +189,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return (string) $this->email;
     }
-
     /**
      * @see UserInterface
      */
@@ -210,7 +207,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-
     /**
      * @see UserInterface
      */
@@ -220,5 +216,4 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
-   
 }
