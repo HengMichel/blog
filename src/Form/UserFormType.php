@@ -16,16 +16,7 @@ class UserFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-    //         ->add('username')
-    //         ->add('firstname')
-    //         ->add('lastname')
-    //         ->add('password')
-    //         ->add('email')
-    //         ->add('createdAt')
-    //     ;
-    // }
-
-
+    
     ->add('username', null, [
         'constraints' => [
             new Assert\NotBlank(['message' => 'Le pseudo est requis.']),
@@ -72,7 +63,7 @@ class UserFormType extends AbstractType
             'constraints' => [
             new Assert\NotBlank(['message' => 'Le mot de passe est requis.']),
             new Assert\Length([
-                'min' => 10,
+                'min' => 5,
                 'max' => 1000,
                 'minMessage' => 'Le mot de passe doit comporter au moins {{ limit }} caractères.',
                 'maxMessage' => 'Le mot de passe ne peut pas dépasser {{ limit }} caractères.',

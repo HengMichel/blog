@@ -47,7 +47,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type:"json", nullable: true)]
     private array $roles = [];
 
-    private ?string $plainPassword;
 
     public function __construct()
     {
@@ -165,6 +164,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function removeArticle(Article $article): static
     {
         if ($this->article->removeElement($article)) {
+
             // set the owning side to null (unless already changed)
             if ($article->getUser() === $this) {
                 $article->setUser(null);

@@ -15,9 +15,9 @@ class HomeController extends AbstractController
     {
         $articles = $articleRepository->findAll();
         $categories = $categoryRepository->findAll();
-
         
         // dd($articles);
+        
         return $this->render('home/home.html.twig', [
             'controller_name' => 'Bienvenue sur mon site !',
             'articles' => $articles,
@@ -26,12 +26,14 @@ class HomeController extends AbstractController
         ]);
     }  
     
+    // #[Security("is_granted('ROLE_USER')")]
     #[Route('/show/{id}', name: 'show')]
     public function show(ArticleRepository $articleRepository,$id): Response
     {
         $article = $articleRepository->find($id);
 
         // dd($articles);
+
         return $this->render('home/show.html.twig', [
             'article' => $article,
 

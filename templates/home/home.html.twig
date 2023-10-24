@@ -1,12 +1,9 @@
-{% extends 'base.html.twig' %} {% block title %} {% endblock %} {% block body %}
-<h1 class="h1 text-xl-center mt-3 fst-italic"><span class="mon link-info">Mon</span> <span class="blog link-primary">Blog</span> à <span class="moi link-warning">moi !</span></h1>
+{% extends 'base.html.twig' %} 
+{% block title %} {% endblock %} 
+{% block body %}
+<h1 class="h1 text-xl-center mt-3 fst-italic"><span class="mon link-info">Mon</span>
+  <span class="blog link-primary">Blog</span> à <span class="moi link-warning">moi !</span></h1>
 
-{# {% set fruits = ["banane", "cerise", "fraise"]%} {% for fruit in fruits %}
-
-{{ fruit | upper }}
-
-{% endfor %}<br />
-#}
 
 <div class="example-wrapper text-xl-center mt-3 d-flex">
 
@@ -24,17 +21,8 @@
           <h5 class="card-title link-success">{{ article.title | upper }}</h5>
 
 
-          {% if app.user %}
-          <button class="btn btn-primary my-2 my-sm-0 link-success mt-2" ><a href="{{ path('show', { id: article.id }) }}"  class="btn btn-primary my-2 my-sm-0 link-success mt-2"
+          <button class="btn btn-secondary my-2 my-sm-0 link-success mt-2" ><a href="{{ path('show', { id: article.id }) }}"  class="btn btn-primary my-2 my-sm-0 link-success mt-2"
             >En Savoir plus</a>
-          
-          {% else %}
-          {# bouton non visible #}
-          <button class="btn btn-outline-primary my-2 my-sm-0 fw-medium border border-1 border-primary ms-2 sf-ajax-request-url" ><a href="{{ path('app_login') }}" class="nav-link link-success">Se connecter</a>
-          </button>
-         
-          {% endif %}
-          
 
           <p class="card-text link-warning h6 mt-2">
             {{ article.createdAt|date('d.m.Y H:i:s')}}
@@ -73,7 +61,9 @@
 {% endif %} #}
 
 
-{% endblock %} {# code formateur
+{% endblock %} 
+
+{# code formateur
 <div class="row">
   {% for article in articles %}
   <div class="card col-md-4" style="width: 18rem">

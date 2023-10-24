@@ -45,4 +45,13 @@ class ArticleRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+   public function findArticlesByUser($userName)
+   {
+       return $this->createQueryBuilder('a')
+           ->innerJoin('a.auteur', 'u')
+           ->Where('u.username = :username')
+           ->setParameter('username', $userName)
+           ->getQuery()
+           ->getResult();
+   }
 }

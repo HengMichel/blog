@@ -24,6 +24,12 @@
     {% include "navbar/navbar.html.twig" %}   
     {% block body %}
 
-     {% endblock %}
+      {# {% if success_message is not empty %}
+      <div class="alert alert-success">
+          {{ success_message }}
+      </div>
+      {% endif %} #}
+
+    {% endblock %}
   </body>
 </html>

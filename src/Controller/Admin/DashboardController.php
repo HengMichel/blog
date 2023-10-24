@@ -7,7 +7,6 @@ use App\Entity\Article;
 use App\Entity\Category;
 use Symfony\Component\HttpFoundation\Response;
 use App\Controller\Admin\ArticleCrudController;
-use App\Controller\HomeController;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -51,8 +50,6 @@ class DashboardController extends AbstractDashboardController
     {
 
         yield MenuItem::linkToRoute('Home', 'fa fa-home', 'app_home'); // 'app_home' is the route to your home page.
-
-
         // yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Article', 'fas fa-list', Article::class);
         yield MenuItem::linkToCrud('Category', 'fas fa-list', Category::class);
