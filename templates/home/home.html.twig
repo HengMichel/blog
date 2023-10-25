@@ -37,10 +37,11 @@
   <div class="filtre m-md-4  text-xxl-end ">
     <h1 class="catego link-warning fst-italic">Catégories</h1>
     <ul class="list-group p-1 border border-1 border-success">
+      
+      {% for category in categories %}
       <li
       class="list-group-item align-items-center"
       >
-      {% for category in categories %}
       <a class="btn btn-outline-warning mt-2 border-primary border-3 list-group-item fw-bold"
        
         href="{{ path('show_filter', { 'id': category.id }) }}"
