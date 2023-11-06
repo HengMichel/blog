@@ -41,9 +41,7 @@ class UserController extends AbstractController
 
             // $this->addFlash('success', 'Inscription réussie ! Vous pouvez maintenant vous connecter.');
             
-
             return $this->redirectToRoute('app_login');
-
             // return new RedirectResponse($this->generateUrl('app_home'));
         
         }

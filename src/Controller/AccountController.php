@@ -6,7 +6,6 @@ use App\Repository\ArticleRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class AccountController extends AbstractController
 {
@@ -18,11 +17,11 @@ class AccountController extends AbstractController
             $username = $user->getUsername();
 
             $articlesFindByUser = $articleRepository->findArticlesByUser($username);
+            dd($articlesFindByUser);
         }
-
         return $this->render('account/account.html.twig', [
             'controller_name' => 'AccountController',
 
-    ]);
+        ]);
     }
 }
